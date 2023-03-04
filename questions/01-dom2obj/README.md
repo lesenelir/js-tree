@@ -1,4 +1,4 @@
-<h1>DOM To JSON</h1>
+<h1>DOM To OBJ</h1>
 
 <blockquote><p>by Lesenelir Zhou<a href="https://github.com/lesenelir" target="_blank"> @lesenelir </a></p></blockquote>
 
