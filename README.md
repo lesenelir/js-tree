@@ -1,2 +1,2 @@
 # js-tree
-Some interview problems about tree structure in JavaScript
+Collection of some interview questions about tree structure in JavaScript
