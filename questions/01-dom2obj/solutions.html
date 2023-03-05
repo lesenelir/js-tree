@@ -5,6 +5,58 @@
   <title>Dom2JSON</title>
 </head>
 <body>
+  <div class="box">
+    <span>
+      <a></a>
+    </span>
+    <span>
+      <a></a>
+      <a></a>
+    </span>
+  </div>
 
+  <script>
+    /*  dom -> obj  */
+    /**
+     * {
+     *   tag: 'DIV',
+     *   children: [
+     *     {
+     *       tag: 'SPAN',
+     *       children: [
+     *         { tag: 'A', children: [] }
+     *       ]
+     *     },
+     *     {
+     *       tag: 'SPAN',
+     *       children: [
+     *         { tag: 'A', children: [] },
+     *         { tag: 'A', children: [] }
+     *       ]
+     *     }
+     *   ]
+     * }
+     */
+
+    function dom2obj(node) { // The parameter 'node' is a DOM node
+      if (!node) return
+
+      let obj = {
+        tag: node.tagName,
+        children: []
+      }
+
+      const child = node.children
+      if (child) {
+        [...child].forEach((el, i) => {
+          obj.children[i] = dom2obj(el)
+        })
+      }
+      return obj
+    }
+
+    const dom = document.getElementsByClassName('box')[0]
+    console.log(dom2obj(dom))
+  </script>
 </body>
 </html>
