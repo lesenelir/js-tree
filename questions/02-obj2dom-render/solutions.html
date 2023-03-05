@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>render</title>
+</head>
+<body>
+  <div class="box"></div>
+
+  <script>
+    /*  dom -> obj  */
+    // React render function
+
+    const element = {
+      tag: 'DIV',
+      attrs: {
+        id: 'app'
+      },
+      children: [
+        {
+          tag: 'SPAN',
+          children: [
+            { tag: 'A', children: [] }
+          ]
+        },
+        {
+          tag: 'SPAN',
+          children: [
+            { tag: 'A', children: [] },
+            { tag: 'A', children: [] }
+          ]
+        }
+      ]
+    }
+
+    function render(node) { // The parameter 'node' is an object
+      // 1. create element
+      const dom = document.createElement(node.tag)
+
+      // 2. set attribution
+      if (node.attrs) {
+        Object.keys(node.attrs).forEach(name => {
+          dom[name] = node.attrs[name]
+        })
+      }
+
+      // 3. recursion render
+      node.children.forEach(child => {
+        dom.appendChild(render(child))  // The result returned by previous recursion call
+      })
+
+      return dom
+    }
+
+    console.log(render(element))
+
+    // append to dom tree
+    const box = document.getElementsByClassName('box')[0]
+    box.appendChild(render(element))
+  </script>
+</body>
+</html>
