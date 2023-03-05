@@ -48,8 +48,9 @@
 
       const child = node.children
       if (child) {
-        [...child].forEach((el, i) => {
-          obj.children[i] = dom2obj(el)
+        [...child].forEach((el) => {
+          // obj.children[i] = dom2obj(el)
+          obj.children.push(dom2obj(el))
         })
       }
       return obj
