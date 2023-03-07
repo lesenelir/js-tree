@@ -1,4 +1,4 @@
-<h1>List To Object Tree</h1>
+<h1>Object tree DFS</h1>
 
 <blockquote><p>by Lesenelir Zhou<a href="https://github.com/lesenelir" target="_blank"> @lesenelir </a></p></blockquote>
 
