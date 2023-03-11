@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>str2tree</title>
+</head>
+<body>
+  <script>
+    const strObj = {
+      'a-b-c-d':1,
+      'a-b-c-e':2,
+      'a-b-f':3,
+      'a-j':4
+    }
+
+    function show(strObj) {
+      let res = {}
+
+      Object.keys(strObj).forEach(key => {
+        let temp = key.split('-')
+        traversal(temp, res, strObj[key])
+      })
+
+      return res
+
+      // Recursion function directly performing assignment operation.
+      function traversal(temp, res, value) {
+        let len = temp.length
+
+        for (let i = 0; i < len - 1; i++) {
+          if (!res[temp[i]]) res[temp[i]] = {}
+          res = res[temp[i]]
+        }
+
+        // the last element
+        res[temp[len - 1]] = value
+      }
+    }
+
+    console.log(show(strObj))
+  </script>
+</body>
+</html>
