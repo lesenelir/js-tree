@@ -41,7 +41,7 @@ function getName(data) {
 
   return res
 
-  function traversal(node) { // The parameter 'node' is object
+  function traversal(node) { // The parameter 'node' is an object
     if (!node) return
 
     res.push(node.name)
